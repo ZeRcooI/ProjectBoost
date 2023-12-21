@@ -382,6 +382,10 @@ PrefabInstance:
       propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3105025664842470511, guid: 664d3683759664349aa7d20099baff7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7577905475525756741, guid: 664d3683759664349aa7d20099baff7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.521

@@ -1,13 +1,32 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    private float _levelLoadDelay = 0.5f;
+    [SerializeField] private AudioClip _success;
+    [SerializeField] private AudioClip _crash;
+
+    [SerializeField] private ParticleSystem _successParticle;
+    [SerializeField] private ParticleSystem _crashParticle;
+
+    private AudioSource _audioSource;
+
+    private float _levelLoadDelay = 2f;
+
+    private bool _isTransitioning = false;
+
+    private void Start()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (_isTransitioning)
+        {
+            return;
+        }
+
         switch (collision.gameObject.tag)
         {
             case "Friendly":
@@ -26,6 +45,13 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartSuccessSequence()
     {
+        _isTransitioning = true;
+        _audioSource.Stop();
+
+        _audioSource.PlayOneShot(_success);
+
+        _successParticle.Play();
+
         GetComponent<Movement>().enabled = false;
 
         Invoke(nameof(LoadNextScene), _levelLoadDelay);
@@ -33,6 +59,13 @@ public class CollisionHandler : MonoBehaviour
 
     private void StartCrashSequence()
     {
+        _isTransitioning = true;
+        _audioSource.Stop();
+
+        _audioSource.PlayOneShot(_crash);
+
+        _crashParticle.Play();
+
         GetComponent<Movement>().enabled = false;
 
         Invoke(nameof(ReloadLevel), _levelLoadDelay);
