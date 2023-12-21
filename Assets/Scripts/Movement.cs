@@ -29,27 +29,42 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(_rotatingThrust);
-
-            if (!_rightThrusterParticle.isPlaying)
-            {
-                _rightThrusterParticle.Play();
-            }
+            RotateLeft();
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-_rotatingThrust);
-
-            if (!_leftThrusterParticle.isPlaying)
-            {
-                _leftThrusterParticle.Play();
-            }
+            RotateRight();
         }
         else
         {
-            _leftThrusterParticle.Stop();
-            _rightThrusterParticle.Stop();
+            StopRotating();
         }
+    }
+
+    private void RotateLeft()
+    {
+        ApplyRotation(_rotatingThrust);
+
+        if (!_rightThrusterParticle.isPlaying)
+        {
+            _rightThrusterParticle.Play();
+        }
+    }
+
+    private void RotateRight()
+    {
+        ApplyRotation(-_rotatingThrust);
+
+        if (!_leftThrusterParticle.isPlaying)
+        {
+            _leftThrusterParticle.Play();
+        }
+    }
+
+    private void StopRotating()
+    {
+        _leftThrusterParticle.Stop();
+        _rightThrusterParticle.Stop();
     }
 
     private void ApplyRotation(float rotationThisFrame)
@@ -65,22 +80,32 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            _rigidbody.AddRelativeForce(Vector3.up * _mainThrust * Time.deltaTime);
-
-            if (!_audioSource.isPlaying)
-            {
-                _audioSource.PlayOneShot(_mainEngine);
-            }
-
-            if (!_mainEngineParticle.isPlaying)
-            {
-                _mainEngineParticle.Play();
-            }
+            StartTrusting();
         }
         else
         {
-            _audioSource.Stop();
-            _mainEngineParticle.Stop();
+            StopTrusting();
         }
+    }
+
+    private void StartTrusting()
+    {
+        _rigidbody.AddRelativeForce(Vector3.up * _mainThrust * Time.deltaTime);
+
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.PlayOneShot(_mainEngine);
+        }
+
+        if (!_mainEngineParticle.isPlaying)
+        {
+            _mainEngineParticle.Play();
+        }
+    }
+
+    private void StopTrusting()
+    {
+        _audioSource.Stop();
+        _mainEngineParticle.Stop();
     }
 }

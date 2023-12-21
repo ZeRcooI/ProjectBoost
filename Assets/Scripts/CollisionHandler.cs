@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,15 +15,21 @@ public class CollisionHandler : MonoBehaviour
     private float _levelLoadDelay = 2f;
 
     private bool _isTransitioning = false;
+    private bool _collisionDisabled = false;
 
     private void Start()
     {
         _audioSource = GetComponent<AudioSource>();
     }
 
+    private void Update()
+    {
+        RespondToDebugKeys();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (_isTransitioning)
+        if (_isTransitioning || _collisionDisabled)
         {
             return;
         }
@@ -30,7 +37,7 @@ public class CollisionHandler : MonoBehaviour
         switch (collision.gameObject.tag)
         {
             case "Friendly":
-
+                Debug.Log("Wohooo!!!");
                 break;
 
             case "Finish":
@@ -40,6 +47,18 @@ public class CollisionHandler : MonoBehaviour
             default:
                 StartCrashSequence();
                 break;
+        }
+    }
+
+    private void RespondToDebugKeys()
+    {
+        if (Input.GetKeyUp(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+        else if(Input.GetKeyUp(KeyCode.C))
+        {
+            _collisionDisabled = !_collisionDisabled;
         }
     }
 
