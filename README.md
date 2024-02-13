@@ -1,16 +1,13 @@
 #  3d Platformer
 
-- Научился создавать объёмные 3d уровни 
-- применил на практике формулы для движения платформы, с помощью синусоидальной волны
-- Разобрался с 3d объектами
-- попрактиковался с ParticleSystem
-- практика с кватернионами
-
+- Освоение создания трехмерных уровней.
+- Практическое использование формул для создания движущихся платформ с помощью синусоидальной волны.
+- Понимание и умение работать с трехмерными объектами.
+- Изучение навыков работы с ParticleSystem, для создавания разнообразных эффектов, такие как взрыв, вспышки придающие игре реалистичность и динамику.
+- Разбор и практическое применение кватернионов для управления объектами в трехмерном пространстве, что помогает реализовать сложные алгоритмы движения и поворотов объектов в игре.
 
 Небольшой отрывок игры: https://youtu.be/un7DqHSzj_c
 
-![Screenshot](https://github.com/ZeRcooI/ThePlatformer/blob/main/Assets/Screenshots/Screenshot%201.jpg)
+![Screenshot](https://github.com/ZeRcooI/ProjectBoost/blob/main/Assets/ScreenShots/Screenshot%201.jpg)
 
-![Screenshot](https://github.com/ZeRcooI/ThePlatformer/blob/main/Assets/Screenshots/Screenshot%202.jpg)
-
-![Screenshot](https://github.com/ZeRcooI/ThePlatformer/blob/main/Assets/Screenshots/Screenshot%203.jpg)
+![Screenshot](https://github.com/ZeRcooI/ProjectBoost/blob/main/Assets/ScreenShots/Screenshot%202.jpg)
