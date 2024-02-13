@@ -1,4 +1,16 @@
-* The preview can be viewed here: https://youtu.be/un7DqHSzj_c
+#  3d Platformer
 
-![image](https://github.com/ZeRcooI/ProjectBoost/assets/94679102/8612e9fa-ebcd-45f2-bd8e-58c7d78e725b)
-![image](https://github.com/ZeRcooI/ProjectBoost/assets/94679102/45554b2f-8b88-4160-97e8-733b0f183dac)
+- Научился создавать объёмные 3d уровни 
+- применил на практике формулы для движения платформы, с помощью синусоидальной волны
+- Разобрался с 3d объектами
+- попрактиковался с ParticleSystem
+- практика с кватернионами
+
+
+Небольшой отрывок игры: https://youtu.be/un7DqHSzj_c
+
+![Screenshot](https://github.com/ZeRcooI/ThePlatformer/blob/main/Assets/Screenshots/Screenshot%201.jpg)
+
+![Screenshot](https://github.com/ZeRcooI/ThePlatformer/blob/main/Assets/Screenshots/Screenshot%202.jpg)
+
+![Screenshot](https://github.com/ZeRcooI/ThePlatformer/blob/main/Assets/Screenshots/Screenshot%203.jpg)
